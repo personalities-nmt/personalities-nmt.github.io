@@ -1,0 +1,105 @@
+/* reset.css — сучасне скидання стилів браузера */
+:root {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Обнуляємо відступи для типових блоків */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Списки без маркерів за замовчуванням */
+ol,
+ul,
+menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Зображення та медіа — блоки, що не виходять за контейнер */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Форм-елементи успадковують шрифти */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Посилання — без підкреслення та власного кольору за замовчуванням */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Таблиці без проміжків */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Краще керування перенесенням слів */
+:where(p, h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: break-word;
+}
+
+/* Поля fieldset/legend */
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+legend {
+    padding: 0;
+}
+
+/* Деталі/резюме */
+details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+/* Зберігаємо видимий фокус за замовчуванням */
+:focus {
+    outline: none;
+}
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Гасимо надмірну анімацію для тих, хто цього просить */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

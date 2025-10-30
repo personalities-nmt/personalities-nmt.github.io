@@ -1,0 +1,221 @@
+/* base.css — базові стилі проєкту */
+
+/* Глобальна модель коробки */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Тема/типографіка за замовчуванням */
+:root {
+    color-scheme: light dark;
+    /* Токени — за потреби підлаштуйте під дизайн-систему */
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --fg: #0b0f13;
+    --bg: #ffffff;
+    --muted: #6b7280;
+    --link: #2563eb;
+
+    --radius: 12px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg: #e5e7eb;
+        --bg: #0b0f13;
+        --muted: #9ca3af;
+        --link: #60a5fa;
+    }
+}
+
+html {
+    /* Базовий розмір шрифту — легко масштабувати */
+    font-size: 16px;
+    hanging-punctuation: first last;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Плавний скрол */
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--fg);
+    background: var(--bg);
+}
+
+/* Контейнер (необовʼязково) */
+.container {
+    width: min(1100px, 100% - 2rem);
+    margin-inline: auto;
+}
+
+/* Типографіка */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+}
+h2 {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+}
+h3 {
+    font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+}
+h4 {
+    font-size: 1.125rem;
+}
+h5 {
+    font-size: 1rem;
+}
+h6 {
+    font-size: 0.875rem;
+}
+
+p + p {
+    margin-top: var(--space-4);
+}
+
+small {
+    font-size: 0.875em;
+    color: var(--muted);
+}
+
+/* Посилання */
+a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Кнопки (базово) */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5ch;
+    padding: 0.6em 1em;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--fg);
+    color: var(--bg);
+    cursor: pointer;
+}
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+button:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
+/* Інпути */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.6em 0.8em;
+    border: 1px solid color-mix(in srgb, var(--fg) 20%, transparent);
+    border-radius: var(--radius);
+    background: transparent;
+    color: inherit;
+}
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
+/* Код/преформатований текст */
+code,
+kbd,
+samp {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    background: color-mix(in srgb, var(--fg) 8%, transparent);
+    padding: 0.15em 0.35em;
+    border-radius: 6px;
+}
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    line-height: 1.5;
+    padding: var(--space-5);
+    border-radius: var(--radius);
+    overflow: auto;
+    background: color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+/* Блокцитати */
+blockquote {
+    margin: var(--space-5) 0;
+    padding: var(--space-4) var(--space-5);
+    border-inline-start: 4px solid var(--link);
+    background: color-mix(in srgb, var(--fg) 6%, transparent);
+    border-radius: var(--radius);
+}
+
+/* Утиліти відступів */
+.mt-1 {
+    margin-top: var(--space-2);
+}
+.mt-2 {
+    margin-top: var(--space-3);
+}
+.mt-3 {
+    margin-top: var(--space-4);
+}
+.mb-1 {
+    margin-bottom: var(--space-2);
+}
+.mb-2 {
+    margin-bottom: var(--space-3);
+}
+.mb-3 {
+    margin-bottom: var(--space-4);
+}
+
+/* Доступність: видимий фокус */
+:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
+/* Менше анімацій, якщо користувач просить */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

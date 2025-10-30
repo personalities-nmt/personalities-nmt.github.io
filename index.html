@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Головна - Персоналії з історії України для НМТ</title>
+
+        <meta
+            name="description"
+            content="Перелік портретів та основної інформації про 54 персоналії, що виносяться на НМТ з історії України. Опрацювавши матеріал цього сайт, Ви можете підвищити свій рівень знань у блоці персоналій при підготовці до НМТ з історії України."
+        />
+        <meta
+            name="keywords"
+            content="історія України, НМТ, ЗНО, історичні персоналії, підготовка, освіта, 54 персоналії, українська історія, підготовка до НМТ, історичні портрети"
+        />
+
+        <!-- Фавікони -->
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+        <!-- Apple -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+        <!-- Android / PWA -->
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
+
+        <!-- Open Graph (FB/Telegram/Viber) -->
+        <meta property="og:title" content="Персоналії з історії України для НМТ" />
+        <meta
+            property="og:description"
+            content="Перелік портретів та основної інформації про 54 персоналії, що виносяться на НМТ з історії України."
+        />
+        <meta property="og:image" content="cover.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Персоналії з історії України для НМТ" />
+        <meta
+            name="twitter:description"
+            content="Перелік портретів та основної інформації про 54 персоналії, що виносяться на НМТ з історії України."
+        />
+        <meta name="twitter:image" content="cover.png" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="base.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <a class="header__title" href="index.html">Каталог</a>
+                <a class="header__link" href="tasks.html">Завдання</a>
+            </nav>
+        </header>
+        <section class="hero">
+            <img class="hero__image hero__image--left" src="img/hero-illustration-left.png" />
+            <img class="hero__image hero__image--right" src="img/hero-illustration-right.png" />
+            <h1 class="hero__title">
+                <span>20</span> персоналій, які необхідно знати, для успішної здачі <span>НМТ</span> з історії України
+            </h1>
+        </section>
+        <div class="container">
+            <section class="controls" aria-label="Пошук і сортування">
+                <input id="searchInput" type="search" placeholder="Пошук персоналій..." aria-label="Пошук" />
+                <select id="sortSelect" aria-label="Сортування">
+                    <option value="name_asc">Ім’я (А→Я)</option>
+                    <option value="name_desc">Ім’я (Я→А)</option>
+                    <option value="born_asc">Дата народження (спочатку старші)</option>
+                    <option value="born_desc">Дата народження (спочатку молодші)</option>
+                    <option value="died_asc">Дата смерті (спочатку раніші)</option>
+                    <option value="died_desc">Дата смерті (спочатку пізніші)</option>
+                </select>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="cards" class="cards-grid" aria-live="polite"></section>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <h4>Персоналії з Історії України для НМТ</h4>
+                <p>Шкільний проєкт</p>
+                <h5>Анна Шевченко, Дарина Кисельова</h5>
+                <p>© 2025. Всі права захищені.</p>
+            </div>
+        </footer>
+        
+        <script src="data.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
